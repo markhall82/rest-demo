@@ -52,7 +52,7 @@ None
 `Content-Type: application/json`
 
 ### Request body
-[ProductPackageRequest](###ProductPackageRequest)
+[ProductPackageRequest](#ProductPackageRequest)
 
 ### Response headers
 Location: The location header is returned when the API returns a HTTP 202 response. The value of this header is the url for the reource that has been created.
@@ -62,7 +62,7 @@ The following HTTP status codes may be returned, optionally with a response reso
 
 |Status code|Description|Resource|
 |--|--|--|
-|201|Resource creation successful|[ProductPackageResponse](##ProductPackageResponse)|
+|201|Resource creation successful|[ProductPackageResponse](#ProductPackageResponse)|
 |202|Request accepted for processing| |
 |500|Internal server error| |
 
@@ -74,7 +74,7 @@ None
 `Content-Type: application/json`
 
 ### Request body
-[ProductPackageRequest](###ProductPackageRequest)
+[ProductPackageRequest](#ProductPackageRequest)
 
 ### Response headers
 Location: The location header is returned when the API returns a 202. The value of this header is the url for the reource that has been created.
@@ -84,7 +84,7 @@ The following HTTP status codes may be returned, optionally with a response reso
 
 |Status code|Description|Resource|
 |--|--|--|
-|200|Request successful|[ProductPackageResponse](##ProductPackageResponse)|
+|200|Request successful|[ProductPackageResponse](#ProductPackageResponse)|
 |202|Request accepted for processing| |
 |404|Requested resource could not be found| |
 |500|Internal server error| |
