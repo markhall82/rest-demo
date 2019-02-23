@@ -99,6 +99,7 @@ public interface ProductPackageService {
 			try {
 				return populateProducts(productPackageResponse, null);
 			} catch(CompletionException e){
+				logger.error("Error saving package {}", e);
 				throw new FailureAfterPersistException(productPackageResponse.getPackageId());
 			}		
 		}

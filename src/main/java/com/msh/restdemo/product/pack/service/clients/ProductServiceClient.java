@@ -29,7 +29,7 @@ public interface ProductServiceClient {
 		CurrencyServiceClient currencyServiceClient;
 
 		@Override
-		@CachePut("product")
+		@CachePut("productResponse")
 		public ProductResponse getProduct(String id) {
 	
 			ProductServiceProductResponse productServiceProductResponse = getProductServiceProduct(id);
@@ -37,12 +37,13 @@ public interface ProductServiceClient {
 		}
 
 		@Override
+		@Cacheable("productService")
 		public ProductServiceProductResponse getProductServiceProduct(String id) {
 			return productStoreTemplate.getForObject(String.format("/%s", id), ProductServiceProductResponse.class);
 		}
 
 		@Override
-		@Cacheable("product")
+		@Cacheable(value="productResponse")
 		public ProductResponse getCacheableProduct(String id) {
 			return getProduct(id);
 		}
