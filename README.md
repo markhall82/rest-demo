@@ -12,7 +12,7 @@ From the directory containing the Maven POM file run the following command:
 # The RESTful API
 The following comprises the guide for how to use the RESTful API contained in the source files. The RESTful API permits the creation, update, retrieval and deletion of packages of products. Some Swagger documentation exists at `/swagger-ui.html` when running the application. 
 
-|Method|HTTP Request|Description 
+|Method|HTTP Request|Description|
 |--|--|--|
 |Retrieve product package|`GET /api/v1/packages/{packageId}`|Get the product package details for the specified package id|
 |Create a poduct package|`POST /api/v1/packages/`|Create a new product package from the request body|
@@ -37,6 +37,7 @@ None
 
 ### Status Codes
 The following HTTP status codes may be returned, optionally with a response resource:
+
 |Status code|Description|Resource|
 |--|--|--|
 |200|Request was successful|[ProductPackageResponse](#ProductPackageResponse)|
@@ -58,11 +59,12 @@ Location: The location header is returned when the API returns a HTTP 202 respon
 
 ### Status Codes
 The following HTTP status codes may be returned, optionally with a response resource:
+
 |Status code|Description|Resource|
 |--|--|--|
 |201|Resource creation successful|[ProductPackageResponse](##ProductPackageResponse)|
-|202|Request accepted for processing||
-|500|Internal server error||
+|202|Request accepted for processing| |
+|500|Internal server error| |
 
 ## Update product package
 ### Query parameters
@@ -82,9 +84,9 @@ The following HTTP status codes may be returned, optionally with a response reso
 |Status code|Description|Resource|
 |--|--|--|
 |200|Request successful|[ProductPackageResponse](##ProductPackageResponse)|
-|202|Request accepted for processing||
-|404|Requested resource could not be found||
-|500|Internal server error||
+|202|Request accepted for processing| |
+|404|Requested resource could not be found| |
+|500|Internal server error| |
 
 ## Delete product package
 
@@ -105,15 +107,15 @@ The following HTTP status codes may be returned, optionally with a response reso
 |Status code|Description|Resource|
 |--|--|--|
 |200|Request was successful|[ProductPackageResponse](#ProductPackageResponse)|
-|404|Requested resource could not be found||
-|500|Internal server error||
+|404|Requested resource could not be found| |
+|500|Internal server error| |
 
 # Request Bodies
 ## ProductPackageRequest
 ```json
 {
 	"name":"string",
-	"description":"string"
+	"description":"string",
 	"products":
 		[
 			{
@@ -128,7 +130,6 @@ The following HTTP status codes may be returned, optionally with a response reso
 |`productPackageRequest.name`|`string`|(Mandatory) The name of the product package|
 |`productPackageRequest.products`|`Array`|(Mandatory) The list of one or more products in the package|
 |`productPackageRequest.products.identifier`|`string`|(Mandatory) The unique identifier of the product package, must be a valid product that exists in the external product service.|
-
 
 # Response Bodies
 ## ProductPackageResponse
