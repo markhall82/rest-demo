@@ -41,6 +41,8 @@ public class ProductPackageEntity {
     }
     
     public ProductPackageEntity(ProductPackageRequest productPackage) {
+		this.description = productPackage.getDescription();
+		this.name = productPackage.getName();
 		setEntityFrom(productPackage);
     }
     

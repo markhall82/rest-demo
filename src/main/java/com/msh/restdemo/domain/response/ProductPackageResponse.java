@@ -7,8 +7,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.msh.restdemo.domain.entities.ProductEntity;
 import com.msh.restdemo.domain.entities.ProductPackageEntity;

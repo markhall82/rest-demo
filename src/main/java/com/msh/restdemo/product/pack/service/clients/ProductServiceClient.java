@@ -1,7 +1,5 @@
 package com.msh.restdemo.product.pack.service.clients;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.CachePut;
@@ -22,8 +20,6 @@ public interface ProductServiceClient {
 
 	@Service
 	public class Default implements ProductServiceClient {
-
-		private final Logger logger = LoggerFactory.getLogger(ProductServiceClient.class);
 
 		@Autowired
 		@Qualifier("productStoreTemplate")
