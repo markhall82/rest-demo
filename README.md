@@ -81,6 +81,7 @@ Location: The location header is returned when the API returns a 202. The value 
 
 ### Status Codes
 The following HTTP status codes may be returned, optionally with a response resource:
+
 |Status code|Description|Resource|
 |--|--|--|
 |200|Request successful|[ProductPackageResponse](##ProductPackageResponse)|
@@ -104,6 +105,7 @@ None
 
 ### Status Codes
 The following HTTP status codes may be returned, optionally with a response resource:
+
 |Status code|Description|Resource|
 |--|--|--|
 |200|Request was successful|[ProductPackageResponse](#ProductPackageResponse)|
