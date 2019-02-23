@@ -14,7 +14,7 @@ import com.msh.restdemo.domain.entities.ProductPackageEntity;
 import io.swagger.annotations.ApiModelProperty;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ProductPackageResponse{
+public class ProductPackageResponse {
 
 	@ApiModelProperty(notes = "The application-specific package ID")
 	private Long packageId;
@@ -90,28 +90,20 @@ public class ProductPackageResponse{
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj == null) {
+		if (obj == this)
+			return true;
+		if (!(obj instanceof ProductPackageResponse)) {
 			return false;
 		}
-		if (!super.equals(obj)) {
-			return false;
-		}
-		if (!ProductPackageResponse.class.isAssignableFrom(obj.getClass())) {
-			return false;
-		}
-
-		final ProductPackageResponse other = (ProductPackageResponse) obj;
-		if ((this.name == null) ? (other.name != null) : !this.name.equals(other.name)) {
-			return false;
-		}
-		if ((this.packageId == null) ? (other.packageId != null) : !this.packageId.equals(other.packageId)) {
-			return false;
-		}
-		return ((this.price == null) ? (other.price != null) : !this.price.equals(other.price));
+		ProductPackageResponse other = (ProductPackageResponse) obj;
+		return packageId == other.packageId && Objects.equals(description, other.description)
+				&& Objects.equals(name, other.name) && Objects.equals(products, other.products)
+				&& Objects.equals(price, other.price);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(name, packageId, price);
+		return Objects.hash(name, packageId, price, description, products);
+
 	}
 }
