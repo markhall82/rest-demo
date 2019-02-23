@@ -30,7 +30,7 @@ public interface CurrencyServiceClient {
 		private RestClientTemplate currencyStoreTemplate;
 
 		@Override
-		@Cacheable
+		@Cacheable("currency")
 		public List<String> getCurrencies() throws IOException {
 			
 			ObjectMapper mapper = new ObjectMapper();
@@ -42,7 +42,7 @@ public interface CurrencyServiceClient {
 		}
 		
 		@Override
-		@Cacheable
+		@Cacheable("currency")
 		public BigDecimal convert(String currency, Long amount) throws IOException {
 			ObjectMapper mapper = new ObjectMapper();
 			JsonNode node = mapper.readTree(currencyStoreTemplate.getForObject(String.format("/latest?amount=%d&from=USD&to=%s", amount, currency), String.class));
