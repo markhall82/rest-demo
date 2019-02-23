@@ -121,7 +121,7 @@ The following HTTP status codes may be returned, optionally with a response reso
 	"products":
 		[
 			{
-				"identifier":"string"
+				"productId":"string"
 			}
 		]
 }
@@ -131,7 +131,7 @@ The following HTTP status codes may be returned, optionally with a response reso
 |`productPackageRequest.description`|`string`|(Optional) The text description of the product package|
 |`productPackageRequest.name`|`string`|(Mandatory) The name of the product package|
 |`productPackageRequest.products`|`Array`|(Mandatory) The list of one or more products in the package|
-|`productPackageRequest.products.identifier`|`string`|(Mandatory) The unique identifier of the product package, must be a valid product that exists in the external product service.|
+|`productPackageRequest.products.productId`|`string`|(Mandatory) The unique productId of the product package, must be a valid product that exists in the external product service.|
 
 # Response Bodies
 ## ProductPackageResponse
@@ -144,7 +144,7 @@ The following HTTP status codes may be returned, optionally with a response reso
 	"products":
 		[
 			{
-				"identifier":"string",
+				"productId":"string",
 				"name":"string",
 				"price":"number"
 			}
@@ -155,10 +155,10 @@ The following HTTP status codes may be returned, optionally with a response reso
 |--|--|--|
 |`productPackageResponse.description`|`string`|The text description of the product package|
 |`productPackageResponse.name`|`string`|The name of the product package|
-|`productPackageResponse.packageId`|`integer`|The unique identifier of the product package|
+|`productPackageResponse.packageId`|`integer`|The unique productId of the product package|
 |`productPackageResponse.price`|`number`|The decimal price of the total of the products in the package. Default currency is USD|
 |`productPackageResponse.products`|`Array`|The list of the products in the package|
-|`productPackageResponse.products.identifier`|`integer`|The unique identifier of the product package|
+|`productPackageResponse.products.productId`|`integer`|The unique productId of the product package|
 |`productPackageResponse.products.name`|`string`|The text name of the product|
 |`productPackageResponse.products.price`|`string`|The decimal price of the product. Default currency is USD|
 
@@ -173,7 +173,7 @@ The following HTTP status codes may be returned, optionally with a response reso
 		"products":
 			[
 				{
-					"identifier":"string",
+					"productId":"string",
 					"name":"string",
 					"price":"number"
 				}
