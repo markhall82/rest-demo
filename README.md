@@ -4,10 +4,14 @@ Apache Maven 3.5.x or later (tested using 3.5.3)
 Java JDK/JRE 8 or later (tested using 1.8.201)
 
 From the directory containing the Maven POM file run the following command:
+
 `mvn spring-boot:run`
+
+By default, the application will be running on http://localhost:8080
+
 *Note:* the credentials for the external product service API have not been committed to this repository. They may be overriden at the command line using the `-D` flag. Alternatively they may be completed in /src/main/resources/application.properties
-`service.product.user=`
-`service.product.pw=`
+```service.product.user=
+service.product.pw=```
 
 # The RESTful API
 The following comprises the guide for how to use the RESTful API contained in the source files. The RESTful API permits the creation, update, retrieval and deletion of packages of products. Some Swagger documentation exists at `/swagger-ui.html` when running the application. 
