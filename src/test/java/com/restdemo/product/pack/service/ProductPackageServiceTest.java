@@ -180,7 +180,7 @@ public class ProductPackageServiceTest {
 	@Test(expected = FailureAfterPersistException.class)
 	public void savePackageExceptionTest() {
 		when(productPackageRepository.save(any(ProductPackageEntity.class))).thenReturn(productPackageEntity);
-		when(productServiceClient.getProduct(anyString()))
+		when(productServiceClient.getProductServiceProduct(anyString()))
 				.thenThrow(new HttpClientErrorException(HttpStatus.GATEWAY_TIMEOUT));
 
 		productPackageService.savePackage(productPackageRequest);
@@ -211,7 +211,7 @@ public class ProductPackageServiceTest {
 		Optional<ProductPackageEntity> OptionalproductPackageEntity = Optional.of(productPackageEntity);
 		when(productPackageRepository.findByPackageId(anyLong())).thenReturn(OptionalproductPackageEntity);
 		when(productPackageRepository.save(any(ProductPackageEntity.class))).thenReturn(productPackageEntity);
-		when(productServiceClient.getProduct(anyString()))
+		when(productServiceClient.getProductServiceProduct(anyString()))
 				.thenThrow(new HttpClientErrorException(HttpStatus.GATEWAY_TIMEOUT));
 
 		productPackageService.updatePackage(1l, productPackageRequest);
@@ -282,7 +282,7 @@ public class ProductPackageServiceTest {
 	public void findProductPackageByIdBadCurrencyTest() throws IOException {
 		Optional<ProductPackageEntity> OptionalproductPackageEntity = Optional.of(productPackageEntity);
 		when(productPackageRepository.findByPackageId(anyLong())).thenReturn(OptionalproductPackageEntity);
-		when(productServiceClient.getProduct(anyString()))
+		when(productServiceClient.getProductServiceProduct(anyString()))
 				.thenThrow(new HttpClientErrorException(HttpStatus.GATEWAY_TIMEOUT));
 		when(currencyServiceClient.getCurrencies()).thenReturn(currencies);
 
@@ -301,7 +301,7 @@ public class ProductPackageServiceTest {
 	public void findProductPackageByIdExceptionTest() {
 		Optional<ProductPackageEntity> OptionalproductPackageEntity = Optional.of(productPackageEntity);
 		when(productPackageRepository.findByPackageId(anyLong())).thenReturn(OptionalproductPackageEntity);
-		when(productServiceClient.getProduct(anyString()))
+		when(productServiceClient.getProductServiceProduct(anyString()))
 				.thenThrow(new HttpClientErrorException(HttpStatus.GATEWAY_TIMEOUT));
 
 		productPackageService.findProductPackageById(1l, null);
@@ -312,7 +312,7 @@ public class ProductPackageServiceTest {
 		List<ProductPackageEntity> productPackageEntityList = new ArrayList<>();
 		productPackageEntityList.add(productPackageEntity);
 		when(productPackageRepository.findAll()).thenReturn(productPackageEntityList);
-		when(productServiceClient.getProduct(anyString()))
+		when(productServiceClient.getProductServiceProduct(anyString()))
 				.thenThrow(new HttpClientErrorException(HttpStatus.GATEWAY_TIMEOUT));
 		productPackageService.findAllPackages().join();
 	}	

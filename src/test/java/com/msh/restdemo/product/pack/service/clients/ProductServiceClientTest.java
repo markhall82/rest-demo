@@ -44,14 +44,5 @@ public class ProductServiceClientTest {
         this.productServiceProductResponse.setUsdPrice(100l);
     }
     
-    @SuppressWarnings("unchecked")
-	@Test
-    public void getProductTest() {
-    	when(productStoreTemplate.getForObject(anyString(), any(Class.class))).thenReturn(productServiceProductResponse);
-    	ProductResponse productResponse = productServiceClient.getProduct("abc123");
-    	assertThat(productResponse.getProductId(), is("abc123"));
-    	assertThat(productResponse.getName(), is("a product"));
-    	assertThat(productResponse.getPrice(), is(BigDecimal.valueOf(1.00).setScale(2, RoundingMode.CEILING)));
-    }
     
 }

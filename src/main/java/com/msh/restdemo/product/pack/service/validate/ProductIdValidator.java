@@ -21,11 +21,7 @@ public class ProductIdValidator implements ConstraintValidator<ProductIdCheck, S
 	@Override
 	public boolean isValid(String productIdentifier, ConstraintValidatorContext context) {
 		try {
-			if (productIdentifier.equals(productClient.getCacheableProduct(productIdentifier).getProductId())) {
-				return true;
-			} else {
-				return productIdentifier.equals(productClient.getProduct(productIdentifier).getProductId());
-			}
+			return productIdentifier.equals(productClient.getProductServiceProduct(productIdentifier).getId());
 		} catch (final HttpClientErrorException ex) {
 			HttpStatus status = ex.getStatusCode();
 			if (status == HttpStatus.NOT_FOUND) {
