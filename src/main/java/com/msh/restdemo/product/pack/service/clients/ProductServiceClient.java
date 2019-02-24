@@ -2,6 +2,7 @@ package com.msh.restdemo.product.pack.service.clients;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +23,13 @@ public interface ProductServiceClient {
 		@Autowired
 		CurrencyServiceClient currencyServiceClient;
 
+		@Value("${service.product.productid.url}")
+		private String productIdUrl;
+		
 		@Override
 		@Cacheable("productService")
 		public ProductServiceProductResponse getProductServiceProduct(String id) {
-			return productStoreTemplate.getForObject(String.format("/%s", id), ProductServiceProductResponse.class);
+			return productStoreTemplate.getForObject(String.format(productIdUrl, id), ProductServiceProductResponse.class);
 		}
 	}
 }

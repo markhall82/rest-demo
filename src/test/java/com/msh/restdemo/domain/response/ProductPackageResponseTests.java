@@ -1,4 +1,4 @@
-package com.msh.restdemo.domain.entities;
+package com.msh.restdemo.domain.response;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;

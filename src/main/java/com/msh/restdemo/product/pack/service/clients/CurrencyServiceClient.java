@@ -9,6 +9,7 @@ import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -29,12 +30,18 @@ public interface CurrencyServiceClient {
 		@Qualifier("currencyStoreTemplate")
 		private RestClientTemplate currencyStoreTemplate;
 
+		@Value("${service.currency.currencies.url}")
+		private String currenciesUrl;
+		
+		@Value("${service.currency.convert.url}")
+		private String converyCurrencyUrl;
+		
 		@Override
 		@Cacheable("currencyServiceLong")
 		public List<String> getCurrencies() throws IOException {
 			
 			ObjectMapper mapper = new ObjectMapper();
-			JsonNode node = mapper.readTree(currencyStoreTemplate.getForObject("/currencies", String.class));
+			JsonNode node = mapper.readTree(currencyStoreTemplate.getForObject(currenciesUrl, String.class));
 			Iterator<String> iterator = node.fieldNames();
 
 			Iterable<String> iterable = () -> iterator;
@@ -45,7 +52,7 @@ public interface CurrencyServiceClient {
 		@Cacheable("currencyService")
 		public BigDecimal convert(String currency, Long amount) throws IOException {
 			ObjectMapper mapper = new ObjectMapper();
-			JsonNode node = mapper.readTree(currencyStoreTemplate.getForObject(String.format("/latest?amount=%d&from=USD&to=%s", amount, currency), String.class));
+			JsonNode node = mapper.readTree(currencyStoreTemplate.getForObject(String.format(converyCurrencyUrl, amount, currency), String.class));
 			Double converted = node.findValue(currency).asDouble();
 			return BigDecimal.valueOf(converted);
 		}
