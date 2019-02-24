@@ -21,11 +21,11 @@ The following comprises the guide for how to use the RESTful API contained in th
 
 |Method|HTTP Request|Description|
 |--|--|--|
-|Retrieve product package|`GET /api/v1/packages/{packageId}`|Get the product package details for the specified package id|
-|Create a poduct package|`POST /api/v1/packages/`|Create a new product package from the request body|
-|Update a product package|`PUT /api/v1/packages/{packageId}`|Update the package from the request body for the specified package id|
-|Delete a product package|`DELETE /api/v1/packages/{packageId}`|Delete the product package for the specified package id|
-|List the product packages|`GET /api/v1/packages/`|Retieve a list of all product packages|
+|Retrieve product package|`GET /v1/packages/{packageId}`|Get the product package details for the specified package id|
+|Create a poduct package|`POST /v1/packages/`|Create a new product package from the request body|
+|Update a product package|`PUT /v1/packages/{packageId}`|Update the package from the request body for the specified package id|
+|Delete a product package|`DELETE /v1/packages/{packageId}`|Delete the product package for the specified package id|
+|List the product packages|`GET /v1/packages/`|Retieve a list of all product packages|
 
 ## Retrieve product package
 
