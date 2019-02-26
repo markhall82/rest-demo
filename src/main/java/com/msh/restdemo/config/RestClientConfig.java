@@ -5,7 +5,6 @@ import com.msh.restdemo.common.client.RestClientTemplate;
 import com.msh.restdemo.common.client.interceptors.LoggingRequestInterceptor;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -32,8 +31,7 @@ public class RestClientConfig {
 	private String productServicePassword;
 	
 	@Bean(name = "rest-template-supplier")
-	public Supplier<RestTemplate> restTemplateBasicAuthSupplier(String username, String password) {
-		return () -> {
+	public RestTemplate restTemplateBasicAuth(String username, String password) {
 			final RestTemplate template = new RestTemplate();
 
 			final ClientHttpRequestInterceptor bai = new BasicAuthenticationInterceptor(username, password);
@@ -45,11 +43,9 @@ public class RestClientConfig {
 			template.setRequestFactory(
 					new BufferingClientHttpRequestFactory(new HttpComponentsClientHttpRequestFactory()));
 			return template;
-		};
 	}
 
-	public Supplier<RestTemplate> restTemplateNoAuthSupplier() {
-		return () -> {
+	public RestTemplate restTemplateNoAuth() {
 			final RestTemplate template = new RestTemplate();
 
 			final ClientHttpRequestInterceptor ri = new LoggingRequestInterceptor();
@@ -60,16 +56,15 @@ public class RestClientConfig {
 			template.setRequestFactory(
 					new BufferingClientHttpRequestFactory(new HttpComponentsClientHttpRequestFactory()));
 			return template;
-		};
 	}
 	
 	@Bean(name="productStoreTemplate")
 	public RestClientTemplate productStoreTemplate() {
-		return new RestClientTemplate(productService, restTemplateBasicAuthSupplier(productServiceUsername, productServicePassword));
+		return new RestClientTemplate(productService, restTemplateBasicAuth(productServiceUsername, productServicePassword));
 	}
 
 	@Bean(name="currencyStoreTemplate")
 	public RestClientTemplate currencyStoreTemplate() {
-		return new RestClientTemplate(currencyService, restTemplateNoAuthSupplier());
+		return new RestClientTemplate(currencyService, restTemplateNoAuth());
 	}
 }
