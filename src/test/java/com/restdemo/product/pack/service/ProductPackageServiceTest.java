@@ -8,7 +8,6 @@ import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.anyString;
 import static org.mockito.Mockito.anyLong;
-import static org.mockito.ArgumentMatchers.isNull;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -39,6 +38,7 @@ import com.msh.restdemo.domain.response.ProductPackageResponse;
 import com.msh.restdemo.domain.response.ProductResponse;
 import com.msh.restdemo.exception.FailureAfterPersistException;
 import com.msh.restdemo.product.pack.service.ProductPackageService;
+import com.msh.restdemo.product.pack.service.ProductPackageServiceImpl;
 import com.msh.restdemo.product.pack.service.clients.CurrencyServiceClient;
 import com.msh.restdemo.product.pack.service.clients.ProductServiceClient;
 import com.msh.restdemo.repository.ProductPackageRepository;
@@ -46,7 +46,7 @@ import com.msh.restdemo.repository.ProductPackageRepository;
 public class ProductPackageServiceTest {
 
 	@InjectMocks
-	private ProductPackageService productPackageService = new ProductPackageService.Default();
+	private ProductPackageService productPackageService = new ProductPackageServiceImpl();
 
 	@Mock
 	private ProductServiceClient productServiceClient;

@@ -4,7 +4,6 @@ import java.util.Objects;
 
 import javax.validation.constraints.NotEmpty;
 
-import com.msh.restdemo.domain.response.ProductResponse;
 import com.msh.restdemo.product.pack.service.validate.ProductIdCheck;
 
 public class ProductRequest {

@@ -1,12 +1,9 @@
 package com.msh.restdemo.domain.request;
 
-import java.util.Objects;
 import java.util.Set;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
-
-import com.msh.restdemo.domain.response.ProductPackageResponse;
 
 import io.swagger.annotations.ApiModelProperty;
 

@@ -25,7 +25,7 @@ import com.msh.restdemo.domain.response.ProductResponse;
 public class ProductServiceClientTest {
 
 	@InjectMocks
-	private ProductServiceClient productServiceClient = new ProductServiceClient.Default();
+	private ProductServiceClient productServiceClient = new ProductServiceClientImpl();
 	
 	@Mock
 	private RestClientTemplate productStoreTemplate;

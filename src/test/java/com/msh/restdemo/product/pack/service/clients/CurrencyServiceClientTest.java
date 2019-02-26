@@ -24,7 +24,7 @@ import com.msh.restdemo.common.client.RestClientTemplate;
 public class CurrencyServiceClientTest {
 
 	@InjectMocks
-	private CurrencyServiceClient currencyServiceClient = new CurrencyServiceClient.Default();
+	private CurrencyServiceClient currencyServiceClient = new CurrencyServiceClientImpl();
 	
 	@Mock
 	private RestClientTemplate productStoreTemplate;
